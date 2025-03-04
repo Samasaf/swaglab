@@ -19,6 +19,7 @@ stages:
         call venv\Scripts\activate
         pip install --upgrade pip
         pip install -r requirements.txt
+        pip install robotframework-jsonlibrary
       displayName: 'Setup Python Environment & Install Dependencies'
 
 - stage: Test
