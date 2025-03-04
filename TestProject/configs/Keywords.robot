@@ -7,7 +7,7 @@ Resource    configs/Variables.robot
 *** Keywords ***
 
 Open Test Application
-    Open Application
+    Open Test Application
     ...    ${APPIUM_SERVER}
     ...    automationName=${ANDROID_AUTOMATION_NAME}
     ...    platformName=${ANDROID_PLATFORM_NAME}
