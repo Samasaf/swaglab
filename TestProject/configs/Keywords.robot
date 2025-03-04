@@ -6,8 +6,10 @@ Resource    configs/Variables.robot
 
 *** Keywords ***
 
+*** Keywords ***
 Open App Test
-    AppiumLibrary.Open Application  http://localhost:4723/wd/hub  platformName=Android
+    [Arguments]    ${APP_SERVER}    ${PLATFORM}
+    AppiumLibrary.Open Application    ${APP_SERVER}    platformName=${PLATFORM}
     ...    ${APPIUM_SERVER}
     ...    automationName=${ANDROID_AUTOMATION_NAME}
     ...    platformName=${ANDROID_PLATFORM_NAME}
