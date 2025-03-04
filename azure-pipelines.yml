@@ -1,11 +1,10 @@
 trigger:
   branches:
     include:
-      - main  # Adjust to your default branch
+      - main  # تأكدي من أن هذا هو اسم الفرع الصحيح في GitHub
 
 pool:
-  name: 'Demo'
-
+  name: 'Demo'  # تأكدي من أن هذا هو اسم الـ Self-Hosted Agent لديك
 
 stages:
 - stage: Build
@@ -13,11 +12,12 @@ stages:
   jobs:
   - job: Build
     steps:
-    - checkout: self
+    - checkout: self  # جلب الكود من GitHub
 
     - script: |
-        python3 -m venv venv
-        source venv/bin/activate
+        python -m venv venv
+        call venv\Scripts\activate
+        pip install --upgrade pip
         pip install -r requirements.txt
       displayName: 'Setup Python Environment & Install Dependencies'
 
@@ -28,8 +28,8 @@ stages:
   - job: Test
     steps:
     - script: |
-        source venv/bin/activate
-        robot -d results tests/
+        call venv\Scripts\activate
+        robot -d results TestProject/
       displayName: 'Run Tests'
 
 - stage: Deploy
@@ -42,4 +42,3 @@ stages:
     - publish: $(System.DefaultWorkingDirectory)/results
       artifact: test-results
       displayName: 'Save Test Results'
-
