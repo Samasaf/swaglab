@@ -6,7 +6,7 @@ Resource    configs/Variables.robot
 
 *** Keywords ***
 
-Open Test Application
+AppiumLibrary.Open Application
      AppiumLibrary.Open Application
     ...    ${APPIUM_SERVER}
     ...    automationName=${ANDROID_AUTOMATION_NAME}
@@ -30,7 +30,7 @@ Load Login Data
 
 preform
       [Arguments]    ${username}    ${password}
-     Open Test Application
+     AppiumLibrary.Open Application
      Wait Until Element Is Visible    ${USERNAME_LOCATOR}
      Input Text       ${USERNAME_LOCATOR}     ${username}
      Wait Until Element Is Visible    ${PASSWORD_LOCATOR}
@@ -49,7 +49,7 @@ Preform logout
 
 
 logIn
-     Open Test Application
+     AppiumLibrary.Open Application
      Load Login Data
      Wait Until Element Is Visible    ${USERNAME_LOCATOR}
      Input Text       ${USERNAME_LOCATOR}    ${USERNAME_LOGIN}
