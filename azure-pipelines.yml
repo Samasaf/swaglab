@@ -4,7 +4,8 @@ trigger:
       - main  # Adjust to your default branch
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: 'Demo'
+
 
 stages:
 - stage: Build
