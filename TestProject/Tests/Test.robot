@@ -11,7 +11,7 @@ Library  JSONLibrary
 
 # RIGHT LOGIN
 Success login with DDT
-    Open Test Application
+    AppiumLibrary.Open Application
     ${json_data} =  Load Json From File  ${JSON_FILE}
 
     ${user1} =  Get Value From Json  ${json_data}  user1.username
@@ -38,7 +38,7 @@ Success login with DDT
 
 #WRONG INPUT
 Unsuccess login
-    Open Test Application
+    AppiumLibrary.Open Application
     Wait Until Element Is Visible    ${USERNAME_LOCATOR}
     Input Text    ${USERNAME_LOCATOR}    ${WRONG_USERNAME} 
     Wait Until Element Is Visible    ${PASSWORD_LOCATOR}
@@ -50,7 +50,7 @@ Unsuccess login
 
 
 Success login
-    Open Test Application
+    AppiumLibrary.Open Application
     Wait Until Element Is Visible    ${ITEM1}    15 seconds
     Click Element    ${ITEM1}
     Sleep    2
